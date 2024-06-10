@@ -1,3 +1,3 @@
 import streamlit as st
 
-st.session_state.
+st.wirte(st.session_state.passNum)
