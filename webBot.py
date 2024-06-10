@@ -11,15 +11,6 @@ if 'clickNum' not in st.session_state:
 def increment_counter():
     st.session_state.clickNum += 1
     if btn:
-        if schPassword == managerPass:
-            st.write('It''s Ok, Wait a moment!!')
-            st.session_state.clickNum = 0
-            st.sweet_page("pages/page1.py")
-        else:
-            if st.session_state.clickNum < 3 :
-                st.write('Incorrect password!!!, Input correct password')
-            else:
-                st.text('Incorrect password!! IF you forgot, contact me by GOE messager : 신길고 조중현')
 # managerPass 생성
 managerPass = str(465233 + dt.datetime.now().year)
 
@@ -32,6 +23,14 @@ schPassword = st.text_input(
 btn = st.button('submit', type="secondary",  on_click=increment_counter)
 
 # 버튼이 클릭되고 입력된 비밀번호가 관리자 비밀번호와 일치하는지 확인
-
+    if schPassword == managerPass:
+        st.write('It''s Ok, Wait a moment!!')
+        st.session_state.clickNum = 0
+        st.sweet_page("pages/page1.py")
+    else:
+        if st.session_state.clickNum < 3 :
+            st.write('Incorrect password!!!, Input correct password')
+        else:
+            st.text('Incorrect password!! IF you forgot, contact me by GOE messager : 신길고 조중현')
 
 
