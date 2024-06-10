@@ -7,10 +7,12 @@ st.title("Welcome!! ChatBot For Teacher")
 # Initialization
 if 'clickNum' not in st.session_state:
     st.session_state.clickNum = 0
+if 'passNum' not in st.session_state:
+    st.session_state.passNum = 0
 
 def increment_counter():
     st.session_state.clickNum += 1
-
+    st.session_state.passNum = schPassword
 # managerPass 생성
 managerPass = str(465233 + dt.datetime.now().year)
 
@@ -18,7 +20,6 @@ managerPass = str(465233 + dt.datetime.now().year)
 schPassword = st.text_input(
     "Input school password", value="", type="password", label_visibility="visible"
 )
-
 # 버튼이 클릭되었는지 확인
 btn = st.button('submit', type="secondary",  on_click=increment_counter)
 
