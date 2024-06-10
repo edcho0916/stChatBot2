@@ -29,6 +29,7 @@ if btn:
     if schPassword == managerPass:
         st.write('It''s Ok, Wait a moment!!')
         st.session_state.clickNum = 0
+        st.page_link("pages/page1.py", label="Page 1", icon="1️⃣")
     else:
         if st.session_state.clickNum < 3 :
             st.write('Incorrect password!!!, Input correct password')
