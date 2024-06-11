@@ -1,4 +1,4 @@
-from openai import OpenAI
+import openai as OpenAI
 import streamlit as st
     
 # st.title("💬 학교생활기록부챗봇")
