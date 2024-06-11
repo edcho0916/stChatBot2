@@ -1,6 +1,3 @@
-import openai as OpenAI
-import streamlit as st
-    
 # st.title("💬 학교생활기록부챗봇")
 # st.caption("🚀 A Streamlit chatbot powered by OpenAI")
 OpenAI_API_Key = st.secrets["API_KEY"]
