@@ -1,12 +1,8 @@
 from openai import OpenAI
 import streamlit as st
-
-
     
 # st.title("💬 학교생활기록부챗봇")
 # st.caption("🚀 A Streamlit chatbot powered by OpenAI")
-
-OpenAI_API_Key ='sk-proj-5ID6L8XujXgQxkbqMtBiT3BlbkFJW2CIB6F78ZrRFQJ3Bjju'
 
 client = OpenAI(api_key=OpenAI_API_Key)
 
