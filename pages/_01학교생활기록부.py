@@ -22,23 +22,23 @@ if "message_01" not in st.session_state:
 for msg in st.session_state.messages_01:
     st.chat_message(msg["role"]).write(msg["content"])
 if prompt := st.chat_input():
-   if not st.session_state.api_key:
+    if not st.session_state.api_key:
        st.info("Please input your OpenAI API key to continue: at Homepage")
        st.stop()
-   st.session_state.messages_01.append({"role": "user", "content": prompt})
-   st.chat_message("user").write(prompt)
+    st.session_state.messages_01.append({"role": "user", "content": prompt})
+    st.chat_message("user").write(prompt)
 
-   response = client.beta.threads.messages.create(
-   thread_id = st.session_state.thread_ID_01,
-   role = "user",
-   content = prompt,
-   )
+    response = client.beta.threads.messages.create(
+    thread_id = st.session_state.thread_ID_01,
+    role = "user",
+    content = prompt,
+     )
 
     run_01 = client.beta.threads.runs.create(
-        thread_id = st.session_state.thread_ID_01, 
-        assistant_id = assistant_ID
+       thread_id = st.session_state.thread_ID_01, 
+       assistant_id = assistant_ID
     )
-    
+
     while True:
         run_01 = client.beta.threads.runs.retrieve(
             thread_id=st.session_state.thread_ID_01,
