@@ -34,22 +34,22 @@ if prompt := st.chat_input():
    content = prompt,
    )
 
-run_01 = client.beta.threads.runs.create(
-    thread_id = st.session_state.thread_ID_01, 
-    assistant_id = assistant_ID
-)
-
-while True:
-    run_01 = client.beta.threads.runs.retrieve(
-        thread_id=st.session_state.thread_ID_01,
-        run_id = run_01.id
+    run_01 = client.beta.threads.runs.create(
+        thread_id = st.session_state.thread_ID_01, 
+        assistant_id = assistant_ID
     )
-    if run_01.status=="completed":
-        break
-    else:
-        time.sleep(2)
-thread_messages_01 = client.beta.threads.messages.list(st.session_state.thread_ID_01)
-msg = thread_messages_01.data[0].content[0].text.value
-print(thread_messages_01)
-st.session_state.messages_01.append({"role": "assistant", "content": msg})
-st.chat_message("assistant").write(msg)
+    
+    while True:
+        run_01 = client.beta.threads.runs.retrieve(
+            thread_id=st.session_state.thread_ID_01,
+            run_id = run_01.id
+        )
+        if run_01.status=="completed":
+            break
+        else:
+            time.sleep(2)
+    thread_messages_01 = client.beta.threads.messages.list(st.session_state.thread_ID_01)
+    msg = thread_messages_01.data[0].content[0].text.value
+    print(thread_messages_01)
+    st.session_state.messages_01.append({"role": "assistant", "content": msg})
+    st.chat_message("assistant").write(msg)
