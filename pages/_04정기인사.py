@@ -17,7 +17,7 @@ with st.sidebar:
 
 
 if "messages_04" not in st.session_state:
-    st.session_state["messages_04"] = [{"role": "assistant", "content": "안녕하세요.교원정기인사에 대해 물어보세요."}]
+    st.session_state["messages_04"] = [{"role": "assistant", "content": "안녕하세요.교원인사, 정원, 계약제 채용에 대해 물어보세요."}]
 
 for msg in st.session_state.messages_04:
     st.chat_message(msg["role"]).write(msg["content"])
