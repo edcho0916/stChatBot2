@@ -22,34 +22,34 @@ if "messages_02" not in st.session_state:
 for msg in st.session_state.messages_02:
     st.chat_message(msg["role"]).write(msg["content"])
 if prompt := st.chat_input():
-   if not st.session_state.api_key:
+    if not st.session_state.api_key:
        st.info("Please input your OpenAI API key to continue: at Homepage")
        st.stop()
-   st.session_state.messages_02.append({"role": "user", "content": prompt})
-   st.chat_message("user").write(prompt)
+    st.session_state.messages_02.append({"role": "user", "content": prompt})
+    st.chat_message("user").write(prompt)
 
-   response = client.beta.threads.messages.create(
-   thread_id = st.session_state.thread_ID_02,
-   role = "user",
-   content = prompt,
-   )
-
-run_02 = client.beta.threads.runs.create(
-    thread_id = st.session_state.thread_ID_02, 
-    assistant_id = assistant_ID
-   )
-
-while True:
-    run_02 = client.beta.threads.runs.retrieve(
-        thread_id=st.session_state.thread_ID_02,
-        run_id = run_02.id
+    response = client.beta.threads.messages.create(
+    thread_id = st.session_state.thread_ID_02,
+    role = "user",
+    content = prompt,
     )
-    if run_02.status=="completed":
-        break
-    else:
-        time.sleep(2)
-thread_messages_02 = client.beta.threads.messages.list(st.session_state.thread_ID_02)
-msg = thread_messages_02.data[0].content[0].text.value
-print(thread_messages_02)
-st.session_state.messages_02.append({"role": "assistant", "content": msg})
-st.chat_message("assistant").write(msg)
+
+    run_02 = client.beta.threads.runs.create(
+        thread_id = st.session_state.thread_ID_02, 
+        assistant_id = assistant_ID
+    )
+
+    while True:
+        run_02 = client.beta.threads.runs.retrieve(
+            thread_id=st.session_state.thread_ID_02,
+            run_id = run_02.id
+        )
+        if run_02.status=="completed":
+            break
+        else:
+            time.sleep(2)
+    thread_messages_02 = client.beta.threads.messages.list(st.session_state.thread_ID_02)
+    msg = thread_messages_02.data[0].content[0].text.value
+    print(thread_messages_02)
+    st.session_state.messages_02.append({"role": "assistant", "content": msg})
+    st.chat_message("assistant").write(msg)
