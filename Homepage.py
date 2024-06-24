@@ -15,7 +15,7 @@ with st.sidebar:
         st.stop()
     elif st.secrets['PASSWORD']==password:
         st.info('Select ChatBot and Input prompt')
-        st.session_state.api_key = st.secrets{'API_KEY']
+        st.session_state.api_key = st.secrets['API_KEY']
     else:
         st.info('Input correct password!!!')
         st.stop()
