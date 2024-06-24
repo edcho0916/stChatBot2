@@ -1,7 +1,7 @@
 import streamlit as st
 
-if "password" not in st.session_state:
-    st.session_state.password = None
+if "api_key" not in st.session_state:
+    st.session_state.api_key = None
 
 st.title("Welcome!!!")
 st.title("💬 Chatbot For Teacher")
@@ -9,7 +9,7 @@ st.caption("🚀 A Streamlit chatbot powered by OpenAI")
 st.write('왼쪽 사이드 바에서 1. PASSWORD 입력, 2. 상담 영역 선택.')
 
 with st.sidebar:
-    password = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password", value=st.session_state.api_key)
+    password = st.text_input("Password", key="chatbot_password", type="password")
     if not password :
         st.info('Please input your PASSWORD')
         st.stop()
