@@ -19,4 +19,3 @@ with st.sidebar:
     else:
         st.info('Input correct password!!!')
         st.stop()
-    
