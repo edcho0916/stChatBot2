@@ -13,7 +13,7 @@ with st.sidebar:
     st.title("💬 학교생활기록부 ChatBot")
     st.write("참조파일 : 2024 생기부 기재요령 ")
     st.write(st.session_state.thread_ID_01)
-    link = "<a href="https://https://drive.google.com/file/d/1VZf9J907jPdkIYIUKOSzMN5zYFb6gsbe/view?usp=sharing" target="_blank">학생부 매뉴얼 바로 가기</a>"
+    link = "<a href='https://https://drive.google.com/file/d/1VZf9J907jPdkIYIUKOSzMN5zYFb6gsbe/view?usp=sharing target=_blank'>학생부 매뉴얼 바로 가기</a>"
     st.html(link)
 
 if "message_01" not in st.session_state:
