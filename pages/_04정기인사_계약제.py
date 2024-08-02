@@ -11,8 +11,9 @@ if "thread_ID_04" not in st.session_state:
     st.session_state.thread_ID_04 = thread_04.id
 
 with st.sidebar:
-    st.title("💬 정기인사 ChatBot")
+    st.title("💬 정기인사 및 계약제 ChatBot")
     st.write("참조파일 : 24 교육공무원인사세부기준")
+    st.write("참조파일 : 24 계약제채용지침")
     st.write(st.session_state.thread_ID_04)
 
 
